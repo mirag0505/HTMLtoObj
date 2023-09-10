@@ -5,12 +5,14 @@
   "repository": "https://github.com/mirag0505/HTMLtoObj",
   "author": "Alex Diko",
   "scripts": {
-    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json"
+    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json",
+    "parcel": "parcel index.html"
   },
   "devDependencies": {
+    "parcel": "^2.9.3",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "test_lybrary_for_browser_and_node": "^0.0.3"
+    "test_lybrary_for_browser_and_node": "^0.0.6"
   }
 }
