@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "test_lybrary_for_brouser_and_node": "^1.0.0"
   }
 }
