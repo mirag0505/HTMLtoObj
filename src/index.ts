@@ -1,1 +1,1 @@
-export { pluck } from "./array/pluck";
+export { pluck } from './array/pluck'
