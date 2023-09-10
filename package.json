@@ -1,6 +1,6 @@
 {
-  "name": "test_lybrary_for_brouser_and_node",
-  "version": "1.0.0",
+  "name": "test_lybrary_homework",
+  "version": "1.0.3",
   "license": "MIT",
   "repository": "https://github.com/mirag0505/HTMLtoObj",
   "author": "Alex Diko",
@@ -11,6 +11,6 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "test_lybrary_for_brouser_and_node": "^1.0.0"
+    "test_lybrary_for_browser_and_node": "^0.0.3"
   }
 }
