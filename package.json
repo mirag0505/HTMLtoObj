@@ -8,7 +8,8 @@
     "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json",
     "parcel": "parcel index.html",
     "test": "jest",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "lint": "eslint 'src/**/*.{js,ts}'"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.15",
