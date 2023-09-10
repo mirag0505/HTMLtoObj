@@ -1,0 +1,10 @@
+{
+  "name": "test_lybrary_for_brouser_and_node",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "https://github.com/mirag0505/HTMLtoObj",
+  "author": "Alex Diko",
+  "scripts": {
+    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json"
+  }
+}
