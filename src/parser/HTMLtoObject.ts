@@ -1,4 +1,3 @@
-export const HTMLtoObject = (htmlString: string): {} => {
-    return elements.map((el) => el[field])
-  }
-  
+export const HTMLtoObject = (htmlString: string): Record<string, unknown> => {
+  return {}
+}
