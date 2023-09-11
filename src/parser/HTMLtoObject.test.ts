@@ -1,6 +1,6 @@
 import { HTMLtoObject } from "./HTMLtoObject";
 
-test("myFunction returns true", () => {
+test("HTMLtoObject easy mode", () => {
   const result = HTMLtoObject("<div>CAT</div>");
   expect(result).toEqual({
     tag: "div",
@@ -8,7 +8,31 @@ test("myFunction returns true", () => {
   });
 });
 
-test("HTMLtoObject hard mode", () => {
+test("HTMLtoObject flat mode", () => {
+  const input = `<div style="background-color: yellow; font-size: 14px" id="first-div"> Hello, friends </div>`;
+  const result = HTMLtoObject(input);
+  expect(result).toEqual({
+    tag: "div",
+    text: "Hello, friends",
+    style: {
+      backgroundColor: "yellow",
+      fontSize: "14px",
+    },
+    id: "first-div",
+  });
+});
+
+test("HTMLtoObject recurcive mode without attribute", () => {
+  const input = `<div> Hello, friends <p> Kek! kek! </p></div>`;
+  const result = HTMLtoObject(input);
+  expect(result).toEqual({
+    tag: "div",
+    text: "Hello, friends",
+    children: [{ tag: "p", text: "Kek! kek!" }],
+  });
+});
+
+test("HTMLtoObject recurcive mode", () => {
   const input = `<div style="background-color: yellow; font-size: 14px" id="first-div">
     Hello, friends
     <p class="para" style="font-faimly: monospace; font-size: 11px">
@@ -20,6 +44,7 @@ test("HTMLtoObject hard mode", () => {
     </span>
     </footer>
     </div>`;
+
   const result = HTMLtoObject(input);
   expect(result).toEqual({
     tag: "div",
