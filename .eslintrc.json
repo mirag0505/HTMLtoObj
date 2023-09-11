@@ -4,9 +4,13 @@
         "es2021": true,
         "node": true
     },
-    "extends": "standard-with-typescript",
+    "extends": [
+        "standard-with-typescript",
+        "prettier"
+    ],
     "rules": {
-        "@typescript-eslint/prefer-nullish-coalescing": "error"
+        "@typescript-eslint/prefer-nullish-coalescing": "error",
+        "prettier/prettier": "error"
     },
     "parserOptions": {
         "project": "./.tsconfig.eslint.json",
@@ -14,5 +18,5 @@
         "sourceType": "module"
     },
     "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint", "jest"]
+    "plugins": ["@typescript-eslint", "jest", "prettier"]
 }
