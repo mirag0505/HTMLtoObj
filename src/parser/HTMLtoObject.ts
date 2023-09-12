@@ -62,6 +62,7 @@ const getAttributes = (fragment: string, result: TNode): void => {
 
       for (const pair of arrayPaitKeyValue) {
         let key = "";
+
         if (pair[0].trim().includes("-")) {
           const partOfKey = pair[0].trim().split("-");
 
@@ -71,6 +72,7 @@ const getAttributes = (fragment: string, result: TNode): void => {
         } else {
           key = pair[0];
         }
+
         const value = pair[1].trim();
 
         object[key] = value;
@@ -78,11 +80,9 @@ const getAttributes = (fragment: string, result: TNode): void => {
       result[attributeName] = object;
     }
   }
-
-  // return result;
 };
 
-const copyOfIterate = (currentFragments, index): [TNode, number] => {
+const recurcionIterator = (currentFragments, index): [TNode, number] => {
   const result: TNode = {};
 
   result.tag = currentFragments[index].slice(1, -1);
@@ -97,7 +97,7 @@ const copyOfIterate = (currentFragments, index): [TNode, number] => {
   while (nextFragment?.startsWith("<") === true && nextFragment[1] !== "/") {
     if (!Array.isArray(result.children)) result.children = [];
 
-    const [children, childIndex] = copyOfIterate(currentFragments, index);
+    const [children, childIndex] = recurcionIterator(currentFragments, index);
     result.children.push(children);
     index = childIndex + 1;
     nextFragment = currentFragments[index];
@@ -106,50 +106,8 @@ const copyOfIterate = (currentFragments, index): [TNode, number] => {
   return [result, index];
 };
 
-// const iterate = (currentFragments, index): TNode => {
-// const result: TNode = {};
-// for (
-//   let curFragmenIndex = index;
-//   curFragmenIndex < currentFragments.length;
-//   curFragmenIndex++
-// ) {
-//   const fragment = currentFragments[curFragmenIndex];
-//   if (fragment[0] !== "<") result.text = fragment;
-//   if (fragment.startsWith("<") === true && fragment[1] === "/") {
-//     const lastOpendTag = arrayTags.pop();
-//     const firstPart = lastOpendTag?.slice(0, 1);
-//     const secondPart = lastOpendTag?.slice(1);
-//     const newString = firstPart + "/" + secondPart;
-//     if (newString === fragment) return result;
-//   }
-//   if (fragment.startsWith("<") === true && fragment[1] !== "/") {
-//     currentFragments.push(fragment);
-//     getAttributes(fragment, result);
-//     const lastOpendTag = arrayTags.pop();
-//     const firstPart = lastOpendTag?.slice(0, 1);
-//     const secondPart = lastOpendTag?.slice(1);
-//     const newCloseTag = firstPart + "/" + secondPart;
-//     if (newCloseTag !== fragment) {
-//       // const lol = iterate(currentFragments, index, arrayTags);
-//       result.children = [];
-//       result.children.push();
-//     }
-//   }
-// }
-// return result;
-// };
-
 export const HTMLtoObject = (html: string): TNode => {
   const fragments = getFragments(html);
 
-  return copyOfIterate(fragments, 0)[0];
+  return recurcionIterator(fragments, 0)[0];
 };
-
-const input = `
-  <footer style="width: auto; height: 100px; color: blue">
-  <span>
-  This is the end
-  </span>
-  </footer>`;
-const result = HTMLtoObject(input);
-console.log(result);

@@ -1,6 +1,6 @@
 {
   "name": "test_lybrary_for_browser_and_node",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Utils confert html to plain obj",
   "main": "lib/es5/index.js",
   "module": "lib/es6/index.js",
