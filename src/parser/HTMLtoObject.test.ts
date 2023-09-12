@@ -33,17 +33,18 @@ test("HTMLtoObject recurcive mode without attribute", () => {
 });
 
 test("HTMLtoObject recurcive mode", () => {
-  const input = `<div style="background-color: yellow; font-size: 14px" id="first-div">
-    Hello, friends
-    <p class="para" style="font-faimly: monospace; font-size: 11px">
-    Lorem ipsum dolor sit
-    </p>
-    <footer style="width: auto; height: 100px; color: blue">
-    <span>
-    This is the end
-    </span>
-    </footer>
-    </div>`;
+  const input = `<div style="background-color: yellow; font-size: 14px"
+  id="first-div">
+  Hello, friends
+  <p class="para" style="font-family: monospace; font-size: 11px">
+  Lorem ipsum dolor sit
+  </p>
+  <footer style="width: auto; height: 100px; color: blue">
+  <span>
+  This is the end
+  </span>
+  </footer>
+  </div>`;
 
   const result = HTMLtoObject(input);
   expect(result).toEqual({
