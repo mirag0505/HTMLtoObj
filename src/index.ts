@@ -1,1 +1,1 @@
-export { pluck } from './array/pluck'
+export { startScriptBothEnviroment } from "./starts/startScriptBothEnviroment";
