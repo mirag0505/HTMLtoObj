@@ -8,3 +8,19 @@
 - You can use any Javascript library alongside your code except those that do the
   HTML-to-object parsing and conversion themselves. The main parsing and conversion
   loop must still be written by you. You can also write everything from scratch - there is no preference, and you will not be graded less/more if you choose not to use libraries. As long as the code runs, it doesn't matter.
+
+# Install
+
+```npm i test_lybrary_for_browser_and_node```
+
+## For client:
+```
+import { startScriptBothEnviroment } from "test_lybrary_for_browser_and_node";
+startScriptBothEnviroment();
+```
+
+## For server:
+```
+const { startScriptBothEnviroment } = require("test_lybrary_for_browser_and_node");
+startScriptBothEnviroment();
+```
