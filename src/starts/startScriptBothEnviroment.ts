@@ -13,22 +13,17 @@ export const startScriptBothEnviroment = (): void => {
     });
   } else {
     document.addEventListener("DOMContentLoaded", function () {
-      // Your code here
       console.log("DOM has loaded!");
     });
 
     const textArea: HTMLTextAreaElement = document.getElementById(
-      "htmlInput",
+      "htmlInput"
     ) as HTMLTextAreaElement;
     const button = document?.getElementById("button");
 
     button?.addEventListener("click", function () {
-      // Your code here
       console.log("DOM has loaded!");
       console.log(HTMLtoObject(textArea?.value));
     });
-
-    console.log("textArea", textArea);
-    console.log("textArea", button);
   }
 };
