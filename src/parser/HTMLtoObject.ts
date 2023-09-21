@@ -108,9 +108,8 @@ const recurcionIterator = (currentFragments, index): [TNode, number] => {
 
 export const HTMLtoObject = (html: string): TNode => {
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-  if (!html) {
-    console.log("html dosent exist");
-  }
+  if (!html) return {};
+
   const fragments = getFragments(html);
 
   const result = recurcionIterator(fragments, 0)[0];

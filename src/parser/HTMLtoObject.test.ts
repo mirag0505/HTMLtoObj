@@ -1,5 +1,10 @@
 import { HTMLtoObject } from "./HTMLtoObject";
 
+test("HTMLtoObject empty input", () => {
+  const result = HTMLtoObject("");
+  expect(result).toEqual({});
+});
+
 test("HTMLtoObject easy mode", () => {
   const result = HTMLtoObject("<div>CAT</div>");
   expect(result).toEqual({
