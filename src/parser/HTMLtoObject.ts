@@ -7,7 +7,7 @@ interface TNode {
   children?: TNode[];
 }
 
-const getFragments = (html): string[] => {
+const getFragments = (html: string): string[] => {
   const arrayFragmens: string[] = [];
 
   let start = 0;
@@ -108,7 +108,7 @@ const recurcionIterator = (currentFragments, index): [TNode, number] => {
 
 export const HTMLtoObject = (html: string): TNode => {
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-  if (!html) return {};
+  if (!html) return {} as TNode;
 
   const fragments = getFragments(html);
 
