@@ -1,5 +1,5 @@
 {
-  "name": "html-to-obj",
+  "name": "@mirag0505/html-to-obj",
   "version": "0.0.1",
   "description": "",
   "main": "./dist/index.js",
