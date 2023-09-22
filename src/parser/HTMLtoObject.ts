@@ -82,7 +82,7 @@ const getAttributes = (fragment: string, result: TNode): void => {
   }
 };
 
-const recurcionIterator = (currentFragments, index): [TNode, number] => {
+const recurcionIterator = (currentFragments: string[], index: number): [TNode, number] => {
   const result: TNode = {};
 
   result.tag = currentFragments[index].slice(1, -1);
@@ -107,7 +107,6 @@ const recurcionIterator = (currentFragments, index): [TNode, number] => {
 };
 
 export const HTMLtoObject = (html: string): TNode => {
-  // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   if (!html) return {} as TNode;
 
   const fragments = getFragments(html);
