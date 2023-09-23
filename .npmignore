@@ -1,6 +1,6 @@
 src
 .changeset
-.githun
+.github
 pnpm-log.yaml
 tsconfig.json
 vite.config.ts
