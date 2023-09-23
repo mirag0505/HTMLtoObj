@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { HTMLtoObject } from "../parser/HTMLtoObject";
 
 export const startScriptBothEnviroment = (): void => {
@@ -7,10 +5,14 @@ export const startScriptBothEnviroment = (): void => {
     const fs = require("fs");
     const fileName = process.argv[2];
 
-    fs.readFile(`./${fileName}`, "utf8", (err, data) => {
-      if (err) throw err;
-      HTMLtoObject(data);
-    });
+    fs.readFile(
+      `./${fileName}`,
+      "utf8",
+      (err: NodeJS.ErrnoException, data: string) => {
+        if (err) throw err;
+        HTMLtoObject(data);
+      }
+    );
   } else {
     document.addEventListener("DOMContentLoaded", function () {
       console.log("DOM has loaded!");
