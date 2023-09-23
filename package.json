@@ -1,6 +1,6 @@
 {
-  "name": "@mirag0505/html-to-obj",
-  "version": "0.0.2",
+  "name": "@alex_diko/html-to-obj",
+  "version": "0.0.1",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
