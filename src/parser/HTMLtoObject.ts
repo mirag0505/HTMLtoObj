@@ -1,11 +1,11 @@
-interface TNode {
+type HTMLObject = {
   tag?: string;
   text?: string;
   style?: Record<string, string>;
   id?: string;
   class?: string;
-  children?: TNode[];
-}
+  children?: HTMLObject[];
+};
 
 const getFragments = (html: string): string[] => {
   const arrayFragmens: string[] = [];
@@ -33,29 +33,28 @@ const getFragments = (html: string): string[] => {
   return arrayFragmens.filter((item) => item !== "");
 };
 
-const getAttributes = (fragment: string, result: TNode): void => {
-  let finishTagIndex = 0;
+const getFinishTagIndex = (fragment: string, result: HTMLObject) => {
   for (let i = 1; i < fragment.length; i++) {
     if (fragment[i] === " " || fragment[i] === ">") {
       result.tag = fragment.slice(1, i).trim();
-      finishTagIndex = i;
-      break;
+      return i;
     }
   }
+};
 
-  const parameters = fragment.slice(finishTagIndex, fragment.length - 1).trim();
-
-  const attributeMatch = parameters.match(/(\w+)="([^"]*)"/g);
-  if (attributeMatch == null) return;
-
+const addAttributeToResult = (
+  attributeMatch: RegExpMatchArray,
+  result: HTMLObject
+) => {
   for (const element of attributeMatch) {
     const splitAttribute = element.split("=");
     const attributeName = splitAttribute[0];
     const attributeValue = splitAttribute[1].replace(/"/g, "");
 
-    if (!attributeValue.includes(";")) result[attributeName] = attributeValue;
+    if (!attributeValue.includes(";"))
+      (result as Record<string, any>)[attributeName] = attributeValue;
     else {
-      const object = {};
+      const object: HTMLObject = <HTMLObject>{};
       const arrayPaitKeyValue = attributeValue
         .split(";")
         .map((i) => i.trim().split(":").flat());
@@ -75,15 +74,28 @@ const getAttributes = (fragment: string, result: TNode): void => {
 
         const value = pair[1].trim();
 
-        object[key] = value;
+        (object as Record<string, any>)[key] = value;
       }
-      result[attributeName] = object;
+      (result as Record<string, any>)[attributeName] = object;
     }
   }
 };
 
-const recurcionIterator = (currentFragments: string[], index: number): [TNode, number] => {
-  const result: TNode = {};
+const getAttributes = (fragment: string, result: HTMLObject): void => {
+  let finishTagIndex = getFinishTagIndex(fragment, result);
+
+  const parameters = fragment.slice(finishTagIndex, fragment.length - 1).trim();
+
+  const attributeMatch = parameters.match(/(\w+)="([^"]*)"/g);
+  if (attributeMatch === null) return;
+  addAttributeToResult(attributeMatch, result);
+};
+
+const recurcionIterator = (
+  currentFragments: string[],
+  index: number
+): [HTMLObject, number] => {
+  const result: HTMLObject = {};
 
   result.tag = currentFragments[index].slice(1, -1);
   getAttributes(currentFragments[index], result);
@@ -106,8 +118,8 @@ const recurcionIterator = (currentFragments: string[], index: number): [TNode, n
   return [result, index];
 };
 
-export const HTMLtoObject = (html: string): TNode => {
-  if (!html) return {} as TNode;
+export const HTMLtoObject = (html: string): HTMLObject => {
+  if (!html) return <HTMLObject>{};
 
   const fragments = getFragments(html);
 
