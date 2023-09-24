@@ -1,6 +1,6 @@
 {
   "name": "@alex_diko/html-to-obj",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -26,6 +26,6 @@
     "vitest": "^0.34.5"
   },
   "dependencies": {
-    "@alex_diko/html-to-obj": "^0.0.2"
+    "@alex_diko/html-to-obj": "^0.0.3"
   }
 }
