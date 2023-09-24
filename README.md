@@ -25,6 +25,8 @@ Add textarea and button in your file .html
 <button id="button">Click</button>
 ```
 
+To avoid CORS error when working with module, either create your own server and run the file in it, or replace import with reqiure
+
 ## For server:
 Add startScriptBothEnviroment in your file server.js
 ```
@@ -36,6 +38,6 @@ startScriptBothEnviroment();
 node server.js markup.html
 ```
 
-## Update library
+## Update npm library
 
 ```pnpm changeset```

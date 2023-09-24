@@ -13,19 +13,20 @@ export const startScriptBothEnviroment = (): void => {
         HTMLtoObject(data);
       }
     );
-  } else {
-    document.addEventListener("DOMContentLoaded", function () {
-      console.log("DOM has loaded!");
-    });
-
-    const textArea: HTMLTextAreaElement = document.getElementById(
-      "htmlInput"
-    ) as HTMLTextAreaElement;
-    const button = document?.getElementById("button");
-
-    button?.addEventListener("click", function () {
-      console.log("DOM has loaded!");
-      console.log(HTMLtoObject(textArea?.value));
-    });
+    return;
   }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM has loaded!");
+  });
+
+  const textArea: HTMLTextAreaElement = document.getElementById(
+    "htmlInput"
+  ) as HTMLTextAreaElement;
+  const button = document?.getElementById("button");
+
+  button?.addEventListener("click", function () {
+    console.log("DOM has loaded!");
+    console.log(HTMLtoObject(textArea?.value));
+  });
 };

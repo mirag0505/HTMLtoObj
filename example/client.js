@@ -1,2 +1,2 @@
-import { startScriptBothEnviroment } from "test_lybrary_for_browser_and_node";
+import { startScriptBothEnviroment } from "@alex_diko/html-to-obj";
 startScriptBothEnviroment();

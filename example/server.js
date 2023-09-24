@@ -1,5 +1,3 @@
-const {
-  startScriptBothEnviroment,
-} = require("test_lybrary_for_browser_and_node");
+const { startScriptBothEnviroment } = require("@alex_diko/html-to-obj");
 
 startScriptBothEnviroment();

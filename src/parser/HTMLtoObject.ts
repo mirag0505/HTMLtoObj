@@ -54,7 +54,7 @@ const addAttributeToResult = (
     if (!attributeValue.includes(";"))
       (result as Record<string, any>)[attributeName] = attributeValue;
     else {
-      const object: HTMLObject = <HTMLObject>{};
+      const innerAttribute: HTMLObject = <HTMLObject>{};
       const arrayPaitKeyValue = attributeValue
         .split(";")
         .map((i) => i.trim().split(":").flat());
@@ -64,7 +64,6 @@ const addAttributeToResult = (
 
         if (pair[0].trim().includes("-")) {
           const partOfKey = pair[0].trim().split("-");
-
           key = `${partOfKey[0]}${partOfKey[1]
             .at(0)
             ?.toUpperCase()}${partOfKey[1].slice(1)}`;
@@ -73,10 +72,10 @@ const addAttributeToResult = (
         }
 
         const value = pair[1].trim();
-
-        (object as Record<string, any>)[key] = value;
+        (innerAttribute as Record<string, any>)[key] = value;
       }
-      (result as Record<string, any>)[attributeName] = object;
+
+      (result as Record<string, any>)[attributeName] = innerAttribute;
     }
   }
 };
@@ -99,13 +98,15 @@ const recurcionIterator = (
 
   result.tag = currentFragments[index].slice(1, -1);
   getAttributes(currentFragments[index], result);
+
   index++;
+
   if (currentFragments[index].startsWith("<") === false) {
     result.text = currentFragments[index];
     index++;
   }
-  let nextFragment = currentFragments[index];
 
+  let nextFragment = currentFragments[index];
   while (nextFragment?.startsWith("<") === true && nextFragment[1] !== "/") {
     if (!Array.isArray(result.children)) result.children = [];
 
@@ -124,7 +125,9 @@ export const HTMLtoObject = (html: string): HTMLObject => {
   const fragments = getFragments(html);
 
   const result = recurcionIterator(fragments, 0)[0];
+
   console.log(result);
   console.log(JSON.stringify(result));
+
   return result;
 };
