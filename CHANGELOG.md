@@ -1,5 +1,11 @@
 # html-to-obj
 
+## 0.0.4
+
+### Patch Changes
+
+- fb2f4da: fix dependens
+
 ## 0.0.3
 
 ### Patch Changes
