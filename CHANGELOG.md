@@ -1,5 +1,15 @@
 # html-to-obj
 
+## 0.0.3
+
+### Patch Changes
+
+- 2171593: fix description
+- 2a4c11d: remove .git folder
+- Updated dependencies [2171593]
+- Updated dependencies [2a4c11d]
+  - @alex_diko/html-to-obj@0.0.3
+
 ## 0.0.2
 
 ### Patch Changes
