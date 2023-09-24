@@ -9,18 +9,33 @@
   HTML-to-object parsing and conversion themselves. The main parsing and conversion
   loop must still be written by you. You can also write everything from scratch - there is no preference, and you will not be graded less/more if you choose not to use libraries. As long as the code runs, it doesn't matter.
 
-# Install
+## Install
 
-```npm i test_lybrary_for_browser_and_node```
+```pnpm i test_lybrary_for_browser_and_node```
 
 ## For client:
+
+Add startScriptBothEnviroment in your file .js
 ```
 import { startScriptBothEnviroment } from "test_lybrary_for_browser_and_node";
 startScriptBothEnviroment();
+
+Add textarea and button in your file .html
+<textarea id="htmlInput"></textarea>
+<button id="button">Click</button>
 ```
 
 ## For server:
+Add startScriptBothEnviroment in your file server.js
 ```
 const { startScriptBothEnviroment } = require("test_lybrary_for_browser_and_node");
 startScriptBothEnviroment();
 ```
+
+```
+node server.js markup.html
+```
+
+## Update library
+
+```pnpm changeset```
