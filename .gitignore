@@ -67,3 +67,5 @@ dist
 .idea
 .vscode
 .DS_Store
+
+pnpm-lock.yaml
