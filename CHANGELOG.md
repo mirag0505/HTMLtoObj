@@ -1,5 +1,11 @@
 # html-to-obj
 
+## 0.0.5
+
+### Patch Changes
+
+- c3b9778: fix dependense
+
 ## 0.0.4
 
 ### Patch Changes
