@@ -1,5 +1,13 @@
 # html-to-obj
 
+## 0.0.7
+
+### Patch Changes
+
+- 4496777: fix example
+- Updated dependencies [4496777]
+  - @alex_diko/html-to-obj@0.0.7
+
 ## 0.0.6
 
 ### Patch Changes
