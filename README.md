@@ -17,25 +17,11 @@
 
 Add startScriptBothEnviroment in your file .js
 ```
-import { startScriptBothEnviroment } from "test_lybrary_for_browser_and_node";
-startScriptBothEnviroment();
-
-Add textarea and button in your file .html
-<textarea id="htmlInput"></textarea>
-<button id="button">Click</button>
-```
-
-To avoid CORS error when working with module, either create your own server and run the file in it, or replace import with reqiure
+import { HTMLtoObject } from "@alex_diko/html-to-obj";
 
 ## For server:
-Add startScriptBothEnviroment in your file server.js
 ```
-const { startScriptBothEnviroment } = require("test_lybrary_for_browser_and_node");
-startScriptBothEnviroment();
-```
-
-```
-node server.js markup.html
+const { HTMLtoObject } = require("@alex_diko/html-to-obj");
 ```
 
 ## Update npm library

@@ -123,11 +123,7 @@ export const HTMLtoObject = (html: string): HTMLObject => {
   if (!html) return <HTMLObject>{};
 
   const fragments = getFragments(html);
-
   const result = recurcionIterator(fragments, 0)[0];
-
-  console.log(result);
-  console.log(JSON.stringify(result));
 
   return result;
 };

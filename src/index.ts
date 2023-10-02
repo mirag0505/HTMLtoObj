@@ -1,1 +1,1 @@
-export { startScriptBothEnviroment } from "./starts/startScriptBothEnviroment";
+export { HTMLtoObject } from "./parser/HTMLtoObject";
