@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const button = document?.getElementById("button");
 
   button?.addEventListener("click", function () {
-    console.log(HTMLtoObject(textArea?.value));
+    const result = HTMLtoObject(textArea?.value);
+    console.log(result);
   });
 });

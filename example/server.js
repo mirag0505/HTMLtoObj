@@ -6,6 +6,7 @@ if (typeof window === "undefined") {
 
   fs.readFile(`./${fileName}`, "utf8", (err, data) => {
     if (err) throw err;
-    HTMLtoObject(data);
+    const result = HTMLtoObject(data);
+    console.log(result);
   });
 }
