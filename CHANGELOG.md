@@ -1,5 +1,11 @@
 # html-to-obj
 
+## 0.0.6
+
+### Patch Changes
+
+- fd5f1fb: separate logic and example
+
 ## 0.0.5
 
 ### Patch Changes
